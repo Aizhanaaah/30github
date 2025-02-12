@@ -89,7 +89,7 @@ public class track {
                 }
                 System.out.println("The total income for today: " + sumIncome);
 
-                System.out.println("");
+                System.out.println("________________________________________________________________________________________________________");
 
                 System.out.println("Your outcomes for today:");
                 for (int i = 0; i < OutcomesList.size(); i++)
@@ -104,8 +104,7 @@ public class track {
 
                 System.out.println("The total outcome for today: " + sumOutcome);
 
-                System.out.println(" ");
-                System.out.println(" ");
+                System.out.println("________________________________________________________________________________________________________");
 
                 System.out.println("Your benefit for today: " + (sumIncome-sumOutcome));
                 break;  // Exits the loop
