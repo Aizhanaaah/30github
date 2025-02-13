@@ -13,7 +13,8 @@ public class track {
 
         LinkedList<Integer> IncomesList = new LinkedList<Integer>();
         LinkedList<Integer> OutcomesList = new LinkedList<Integer>();
-
+        LinkedList<String> IncomesResourceList = new LinkedList<String>();
+        LinkedList<String> OutcomesResourceList = new LinkedList<String>();
 
         int incomeAmount;
         int outcomeAmount; 
@@ -21,6 +22,7 @@ public class track {
         String outcomeSource;
         int sumIncome;
         int sumOutcome;
+        int benefit;
         LocalDate currentDate = LocalDate.now();
         //shows today's date:
         void showCurrentTime()
@@ -37,7 +39,7 @@ public class track {
             System.out.println("What would you like to record today?");
             while(true)
             {
-            System.out.println("Income           Outcome");
+            System.out.println("Income                      Outcome");
             String InOrOut = scanner.nextLine();
 
 
@@ -48,32 +50,46 @@ public class track {
                 incomeAmount = scanner.nextInt();
                 IncomesList.add(incomeAmount);
                 scanner.nextLine();
+                System.out.println("What is the source?");
+                incomeSource = scanner.nextLine();
+                IncomesResourceList.add(incomeSource);
                 break;
                 case "income":
                 System.out.println("What is your income for today?");
                 incomeAmount = scanner.nextInt();
                 IncomesList.add(incomeAmount);
                 scanner.nextLine();
+                System.out.println("What is the source?");
+                incomeSource = scanner.nextLine();
+                IncomesResourceList.add(incomeSource);
                 break;
                 case "Outcome":
                 System.out.println("What is your outcome for today?");
                 outcomeAmount = scanner.nextInt();
                 OutcomesList.add(outcomeAmount);
                 scanner.nextLine();
+                System.out.println("Where did you spend it?");
+                outcomeSource = scanner.nextLine();
+                OutcomesResourceList.add(outcomeSource);
                 break;
                 case "outcome":
                 System.out.println("What is your outcome for today?");
                 outcomeAmount = scanner.nextInt();
                 OutcomesList.add(outcomeAmount);
                 scanner.nextLine();
+                System.out.println("Where did you spend it?");
+                outcomeSource = scanner.nextLine();
+                OutcomesResourceList.add(outcomeSource);
                 break;
                 default:
-                System.out.println("Invalid option. try again");
+                System.out.println("What??");
+                break;
             }
             //exit point:
             
             if (InOrOut.equalsIgnoreCase("exit")) 
             {
+
                 System.out.println("Exiting the program. Goodbye!");
 
                 //report about incomes:
@@ -106,10 +122,21 @@ public class track {
 
                 System.out.println("________________________________________________________________________________________________________");
 
-                System.out.println("Your benefit for today: " + (sumIncome-sumOutcome));
-                break;  // Exits the loop
-            }
+                benefit = sumIncome-sumOutcome;
 
+                System.out.println("Your benefit for today: " + (benefit));
+                if (benefit > 0)
+                {
+                    System.out.println("You are handling well with your budget, and keep improving it!");
+                }
+                else
+                {
+                    System.out.println("Please, try to improve next time");
+                }
+                break;  // Exits the loop
+
+            }
+            
         }
         }
 }
