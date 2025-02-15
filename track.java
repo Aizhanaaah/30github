@@ -23,6 +23,8 @@ public class track {
         int sumIncome;
         int sumOutcome;
         int benefit;
+        int incomeLength = 0;
+        int outcomeLength = 0;
         LocalDate currentDate = LocalDate.now();
         //shows today's date:
         void showCurrentTime()
@@ -41,11 +43,11 @@ public class track {
             {
             System.out.println("Income                      Outcome");
             String InOrOut = scanner.nextLine();
-
-
             switch (InOrOut)
             {
+               //income inputs:
                 case "Income":
+                //incomeLength++;
                 System.out.println("What is your income for today?");
                 incomeAmount = scanner.nextInt();
                 IncomesList.add(incomeAmount);
@@ -55,6 +57,7 @@ public class track {
                 IncomesResourceList.add(incomeSource);
                 break;
                 case "income":
+                //incomeLength++;
                 System.out.println("What is your income for today?");
                 incomeAmount = scanner.nextInt();
                 IncomesList.add(incomeAmount);
@@ -63,7 +66,10 @@ public class track {
                 incomeSource = scanner.nextLine();
                 IncomesResourceList.add(incomeSource);
                 break;
+
+                //outcome inputs:
                 case "Outcome":
+                //outcomeLength++;
                 System.out.println("What is your outcome for today?");
                 outcomeAmount = scanner.nextInt();
                 OutcomesList.add(outcomeAmount);
@@ -73,6 +79,7 @@ public class track {
                 OutcomesResourceList.add(outcomeSource);
                 break;
                 case "outcome":
+                //outcomeLength++;
                 System.out.println("What is your outcome for today?");
                 outcomeAmount = scanner.nextInt();
                 OutcomesList.add(outcomeAmount);
@@ -96,27 +103,34 @@ public class track {
                 System.out.println("Your incomes for today:");
                 for (int i = 0; i < IncomesList.size(); i++)
                 {
-                    System.out.println(IncomesList.get(i));
+                    System.out.println(IncomesList.get(i) + "                   " + IncomesResourceList.get(i));
                 }
                 
                 for (int i = 0; i < IncomesList.size(); i++)
                 {
                     sumIncome += IncomesList.get(i);
                 }
+
+                System.out.println("________________________________________________________________________________________________________");
+
                 System.out.println("The total income for today: " + sumIncome);
 
                 System.out.println("________________________________________________________________________________________________________");
 
+                //report about outcomes:
+
                 System.out.println("Your outcomes for today:");
                 for (int i = 0; i < OutcomesList.size(); i++)
                 {
-                    System.out.println(OutcomesList.get(i));
+                    System.out.println(OutcomesList.get(i)+ "                   " + OutcomesResourceList.get(i));
                 }
                 
                 for (int i = 0; i < OutcomesList.size(); i++)
                 {
                     sumOutcome += OutcomesList.get(i);
                 }
+
+                System.out.println("________________________________________________________________________________________________________");
 
                 System.out.println("The total outcome for today: " + sumOutcome);
 
